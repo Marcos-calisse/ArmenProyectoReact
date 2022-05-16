@@ -1,10 +1,15 @@
 import './App.css';
+import NavBar from './Components/Nav/NavBar';
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <>
+      <NavBar />
+      <div className="App">
+        <h1>Armen - Ropa interior masculina</h1>
+      </div>
+    </>
+    
   );
 }
 
