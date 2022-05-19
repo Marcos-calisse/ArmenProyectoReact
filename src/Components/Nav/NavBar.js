@@ -1,12 +1,12 @@
 import './NavBar.css';
 import Navbar from 'react-bootstrap/Navbar'
-
+import Cart from '../Cart/Cart'
 
 const NavBar = () => {
     return(
         <Navbar bg="dark" variant="dark" className="nav-bar">
 
-            <img src="./logo-marca.jpg" className="logo-marca" />
+            <img src="./logoArmen.jpeg" className="logo-marca" alt="logo"/>
 
             <ul className='nav-list'>
                 <li>
@@ -19,6 +19,10 @@ const NavBar = () => {
                     <a href="./index.html">Contacto</a>
                 </li>
             </ul>
+            <div>
+                <Cart />
+            </div>
+            
            
         </Navbar>
     )
