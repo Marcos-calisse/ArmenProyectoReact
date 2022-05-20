@@ -19,7 +19,7 @@ const NavBar = () => {
                     <a href="./index.html">Contacto</a>
                 </li>
             </ul>
-            <div>
+            <div className="cartContainer">
                 <Cart />
             </div>
             
