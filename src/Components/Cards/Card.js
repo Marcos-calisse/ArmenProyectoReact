@@ -1,21 +1,23 @@
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
 import './card.css'
+import ItemCount from './ItemCount'
 
 const CardItem = ({titulo, precio, image}) => {
+    
     return (
-        <Card border="dark" style={{ width: '18rem' }}>
-            <div className="conteiner-img">
+        <div style={{ width: '12rem' }}>
+            <div className="container-img">
                 <img src={`./${image}`} alt="" />
             </div>
-            <Card.Body>
-                <Card.Title>{titulo}</Card.Title>
-                <Card.Text>
+            <div>
+                <h2>{titulo}</h2>
+                <span>
                     {`$ ${precio}`}
-                </Card.Text>
-                <Button variant={'dark'}>Detalle</Button>
-            </Card.Body>
-        </Card>
+                </span>
+                <ItemCount />
+                <button className="buttonCard">Ver Detalle</button>
+                <button className="buttonCard">Comprar</button>
+            </div>
+        </div>
     )
 }
 
