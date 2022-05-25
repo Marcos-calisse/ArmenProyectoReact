@@ -2,7 +2,7 @@ import './card.css'
 import ItemCount from './ItemCount'
 
 const CardItem = ({titulo, precio, image}) => {
-    
+
     return (
         <div style={{ width: '12rem' }}>
             <div className="container-img">
@@ -13,7 +13,7 @@ const CardItem = ({titulo, precio, image}) => {
                 <span>
                     {`$ ${precio}`}
                 </span>
-                <ItemCount />
+                <ItemCount stock = {5} />
                 <button className="buttonCard">Ver Detalle</button>
                 <button className="buttonCard">Comprar</button>
             </div>

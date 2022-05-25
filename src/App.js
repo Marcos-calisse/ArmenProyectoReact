@@ -8,7 +8,6 @@ function App() {
         <NavBar />
         <h1>Armen - Ropa interior masculina</h1>
         <CardList titulo={"PRODUCTOS MAS BUSCADOS"}/>
-        <CardList titulo={"PRODUCTOS RELACIONADOS"}/>
       </div>
     
   );

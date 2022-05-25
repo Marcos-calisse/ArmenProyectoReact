@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const ItemCount = () =>{
+const ItemCount = ({stock}) =>{
 
     const [count, setCount] = useState(1)
 
@@ -13,9 +13,9 @@ const ItemCount = () =>{
 
     return(
         <div className="containerCount">
-            <button className="buttonCard" onClick={removeCount} disabled={count === 1}>-</button>
+            <button className="buttonCard" onClick={removeCount} disabled ={count === 0}>-</button>
             <p>{count}</p>
-            <button className="buttonCard" onClick={addCount}>+</button>
+            <button className="buttonCard" onClick={addCount} disabled={ count === stock}>+</button>
         </div>
     )
 }
