@@ -1,0 +1,9 @@
+.containerDetalleProducto{
+    width: 100%;
+    height: 100vh;
+}
+
+.imagenProducto{
+    width: 30rem;
+    height: 30rem
+}
