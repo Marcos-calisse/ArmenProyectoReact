@@ -28,7 +28,7 @@ const producto = {
     precio: 1500,
     stock: 10,
     image: './boxer-Armound.jpg',
-    descripcion: 'Boxer de excelente calidad, en varios colores'
+    descripcion: 'Descripcion: Boxer de excelente calidad, en varios colores'
 }
 
 export default productos
