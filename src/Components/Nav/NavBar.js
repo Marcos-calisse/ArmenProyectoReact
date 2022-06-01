@@ -1,12 +1,13 @@
 import './NavBar.css';
 import Navbar from 'react-bootstrap/Navbar'
 import Cart from '../Cart/Cart'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
     return(
         <Navbar bg="dark" variant="dark" className="nav-bar">
 
-            <img src="./logoArmen.jpeg" className="logo-marca" alt="logo"/>
+            <img src="/logoArmen.jpeg" className="logo-marca" alt="logo"/>
 
             <ul className='nav-list'>
                 <li>

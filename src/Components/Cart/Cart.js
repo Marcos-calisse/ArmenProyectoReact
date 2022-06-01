@@ -3,7 +3,7 @@ import './cart.css'
 const Cart = () => {
     return(
         <div className="img-carrito">
-            <img src="./cart3.svg" alt=""></img>
+            <img src="/cart3.svg" alt=""></img>
         </div>
     )
 }

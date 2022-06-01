@@ -1,8 +1,10 @@
 import './App.css';
 import NavBar from './Components/Nav/NavBar';
-//import CardList from './Components/CardListContainer/CardList';
-import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer'
+import CardList from './Components/CardListContainer/CardList';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Contacto from './Components/pages/Contacto'
+import Nosotros from './Components/pages/Nosotros'
+import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer'
 
 function App() {
   return (
@@ -10,13 +12,13 @@ function App() {
         <BrowserRouter>
           <NavBar />
           <Routes>
-            <Route />
+            <Route exact path='/productos/category/:id' element={<ItemDetailContainer />} />
+            <Route exact path='/contacto' element={<Contacto />} />
+            <Route exact path='/' element={<CardList />} />
+            <Route exact path='/nosotros' element={<Nosotros />} />
           </Routes>
         </BrowserRouter>
         
-        <h1>Armen - Ropa interior masculina</h1>
-        {/* <CardList titulo={"PRODUCTOS MAS BUSCADOS"}/> */}
-        <ItemDetailContainer />
       </div>
     
   );
