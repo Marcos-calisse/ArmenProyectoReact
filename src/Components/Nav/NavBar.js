@@ -5,19 +5,23 @@ import { Link } from 'react-router-dom'
 
 const NavBar = () => {
     return(
-        <Navbar bg="dark" variant="dark" className="nav-bar">
-
-            <img src="/logoArmen.jpeg" className="logo-marca" alt="logo"/>
+        <Navbar  className="nav-bar">
+            
+            <Link to='/'>
+                <div className="containerLogoMarca">
+                    <img src="/logoArmen.jpeg" className='imagenLogo' alt="logo"/>
+                </div>
+            </Link>
 
             <ul className='nav-list'>
                 <li>
-                    <a href="./index.html">Nosotros</a>
+                    <Link to='/nosotros' className='componentesLink'>Nosotros</Link>
                 </li>
                 <li>
-                    <a href="./index.html">Productos</a>
+                    <Link to='/productos' className='componentesLink'>Productos</Link>
                 </li>
                 <li>
-                    <a href="./index.html">Contacto</a>
+                    <Link to='/contacto' className='componentesLink'>Contacto</Link>
                 </li>
             </ul>
             <div className="cartContainer">

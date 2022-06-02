@@ -12,7 +12,7 @@ const CardList = ({titulo}) => {
         return new Promise((resolve, reject) => {
             setTimeout(() =>{
                 resolve(productos)
-            }, 2000)
+            })
         })
     }
 
@@ -36,7 +36,8 @@ const CardList = ({titulo}) => {
                     products.map((producto) => {
                         return(
                             <div>
-                                <CardItem titulo={producto.nombre} precio={producto.precio} image={producto.image} /> 
+                                <CardItem titulo={producto.nombre} precio={producto.precio} image={producto.image} id={producto.id} />
+                                <CardItem titulo={producto.nombre} precio={producto.precio} image={producto.image} id={producto.id} />
                             </div>
                         )
                     })

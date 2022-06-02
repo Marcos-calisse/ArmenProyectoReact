@@ -15,7 +15,7 @@ const ItemDetail = ({data}) => {
                 <span className="infoPrecioProducto">{`$ ${data.precio}`}</span>
                 <ItemCount className="countDelProducto" />
                 <p className="descripcionProducto">{data.descripcion}</p>
-                <button className="buttonCard">Agregar al carrito</button>
+                <button className="buttonCardDetalle">Agregar al carrito</button>
             </div>
            
 

@@ -1,10 +1,11 @@
 import './card.css'
 import ItemCount from './ItemCount'
+import { Link } from 'react-router-dom'
 
-const CardItem = ({titulo, precio, image}) => {
-
+const CardItem = ({titulo, precio, image, id}) => {
+    console.log('id producto', id)
     return (
-        <div style={{ width: '12rem' }}>
+        <div style={{ width: '12rem' }} className="cardContainer">
             <div className="container-img">
                 <img src={`./${image}`} alt="" />
             </div>
@@ -14,8 +15,11 @@ const CardItem = ({titulo, precio, image}) => {
                     {`$ ${precio}`}
                 </span>
                 <ItemCount stock = {5} />
-                <button className="buttonCard">Ver Detalle</button>
-                <button className="buttonCard">Comprar</button>
+                <div className="containerLink">
+                    <Link to={`/productos/${id}`} className="linkDetalle">Ver Detalle</Link>
+                </div>
+                
+                
             </div>
         </div>
     )
