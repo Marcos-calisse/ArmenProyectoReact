@@ -3,6 +3,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Cart from '../Cart/Cart'
 import { Link } from 'react-router-dom'
 
+
 const NavBar = () => {
     return(
         <Navbar  className="nav-bar">
@@ -18,7 +19,9 @@ const NavBar = () => {
                     <Link to='/nosotros' className='componentesLink'>Nosotros</Link>
                 </li>
                 <li>
-                    <Link to='/productos' className='componentesLink'>Productos</Link>
+                        <Link to='/productos/categoria' className='componentesLink'>
+                            Productos    
+                        </Link> 
                 </li>
                 <li>
                     <Link to='/contacto' className='componentesLink'>Contacto</Link>

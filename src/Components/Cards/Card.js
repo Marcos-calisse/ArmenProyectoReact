@@ -3,11 +3,11 @@ import ItemCount from './ItemCount'
 import { Link } from 'react-router-dom'
 
 const CardItem = ({titulo, precio, image, id}) => {
-    console.log('id producto', id)
+    
     return (
         <div style={{ width: '12rem' }} className="cardContainer">
             <div className="container-img">
-                <img src={`./${image}`} alt="" />
+                <img src={`/${image}`} alt="" />
             </div>
             <div>
                 <h2>{titulo}</h2>
@@ -16,7 +16,7 @@ const CardItem = ({titulo, precio, image, id}) => {
                 </span>
                 <ItemCount stock = {5} />
                 <div className="containerLink">
-                    <Link to={`/productos/${id}`} className="linkDetalle">Ver Detalle</Link>
+                    <Link to={`/producto/${id}`} className="linkDetalle">Ver Detalle</Link>
                 </div>
                 
                 

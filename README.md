@@ -1,4 +1,7 @@
 # Getting Started with Create React App
+Esta app es un proyecto de ecommerce para el curso de React Js de Coder House
+se instalaron dependencias como Node Js, React-boostrap, React-router-dom y react-bosstrap-icons
+el gif para la primer entrega del proyecto se encuentra en la carpeta public
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
