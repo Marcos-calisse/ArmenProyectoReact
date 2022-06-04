@@ -2,9 +2,16 @@ import './NavBar.css';
 import Navbar from 'react-bootstrap/Navbar'
 import Cart from '../Cart/Cart'
 import { Link } from 'react-router-dom'
+import Dropdown from 'react-bootstrap/Dropdown'
 
 
 const NavBar = () => {
+
+    const categorias = ['Boxers', 'Gorras'];
+    categorias.map((cat) =>{
+        return cat
+    })
+
     return(
         <Navbar  className="nav-bar">
             
@@ -19,9 +26,17 @@ const NavBar = () => {
                     <Link to='/nosotros' className='componentesLink'>Nosotros</Link>
                 </li>
                 <li>
-                        <Link to='/productos/categoria' className='componentesLink'>
+                    
+                    <Dropdown className='subNav'>
+                        <Dropdown.Toggle variant="success" id="dropdown-basic">
                             Productos    
-                        </Link> 
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item><Link to={`/productos/:categoria`} className='componentesLink'>Boxers</Link></Dropdown.Item>
+                            <Dropdown.Item><Link to={`/productos/:categoria`} className='componentesLink'>Gorras</Link></Dropdown.Item>  
+                        </Dropdown.Menu>
+                    </Dropdown>
                 </li>
                 <li>
                     <Link to='/contacto' className='componentesLink'>Contacto</Link>

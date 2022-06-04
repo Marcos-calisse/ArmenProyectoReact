@@ -1,6 +1,6 @@
 .nav-bar{
     width: 100%;
-    background-color: black;
+    background-color: cadetblue;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -14,13 +14,16 @@
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;
-    background-color: rgb(0, 204, 255);
     padding: 5px;
 }
 
 .nav-list li{
     display: inline;
-    margin: 5px;
+    margin: 50px;
+}
+
+.nav-list li:hover{
+    background-color: white
 }
 
 .cartContainer{
