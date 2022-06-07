@@ -8,6 +8,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 const NavBar = () => {
 
     const categorias = ['Boxers', 'Gorras'];
+    
     categorias.map((cat) =>{
         return cat
     })

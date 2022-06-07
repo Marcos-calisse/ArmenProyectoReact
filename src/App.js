@@ -6,6 +6,7 @@ import Nosotros from './Components/pages/Nosotros'
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer'
 import Productos from './Components/pages/Productos'
 import Home from './Components/pages/Home'
+import Cart from './Components/pages/Cart'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route exact path='/productos/:categoria' element={<Productos />} />
             <Route exact path='/contacto' element={<Contacto />} />
             <Route exact path='/producto/:id' element={<ItemDetailContainer />} />
+            <Route exact path='/cart' element={<Cart />} />
           </Routes>
         </BrowserRouter>
         

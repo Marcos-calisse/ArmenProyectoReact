@@ -1,5 +1,4 @@
 import './card.css'
-import ItemCount from './ItemCount'
 import { Link } from 'react-router-dom'
 
 const CardItem = ({titulo, precio, image, id}) => {
@@ -11,10 +10,11 @@ const CardItem = ({titulo, precio, image, id}) => {
             </div>
             <div>
                 <h2>{titulo}</h2>
+                
                 <span>
                     {`$ ${precio}`}
                 </span>
-                <ItemCount stock = {5} />
+                
                 <div className="containerLink">
                     <Link to={`/producto/${id}`} className="linkDetalle">Ver Detalle</Link>
                 </div>

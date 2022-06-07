@@ -37,7 +37,6 @@ const CardList = ({titulo}) => {
                         return(
                             <div>
                                 <CardItem titulo={producto.nombre} precio={producto.precio} image={producto.image} id={producto.id} />
-                                <CardItem titulo={producto.nombre} precio={producto.precio} image={producto.image} id={producto.id} />
                             </div>
                         )
                     })
