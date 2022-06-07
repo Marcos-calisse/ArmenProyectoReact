@@ -10,9 +10,9 @@ const ItemDetail = ({data}) => {
     const [showButton, setShowButton] = useState(false)
 
     const addToCart = () => {
-        console.log('producto agregado', data)
-        console.log('cantidad agregada', cantidad)
+        
         setShowButton(true)
+        setCantidad(1)
     }
 
     return(
@@ -24,20 +24,21 @@ const ItemDetail = ({data}) => {
             <div className="containerInfoDetalle">
                 <h2 className="tituloDetalleProducto">{data.nombre}</h2>
                 <span className="infoPrecioProducto">{`$ ${data.precio}`}</span>
-                <label>Seleccione el talle</label>
-                <select>
+                <p className="descripcionProducto">{data.descripcion}</p>
+                <label className="labelSelector">Seleccione el talle</label>
+                <select className="selector">
                     <option></option>
                     <option>S</option>
                     <option>M</option>
                     <option>L</option>
                     <option>XL</option>
                 </select>
-                <label>Seleccione Cantidad</label>
+                <label className="labelSelector">Seleccione Cantidad</label>
                 <ItemCount className="countDelProducto" modificarCantidad={setCantidad} cantidad={cantidad} stock = {5}/>
-                <p className="descripcionProducto">{data.descripcion}</p>
+                
                 <button className="buttonCardDetalle" onClick={addToCart}>Agregar al carrito</button>
                 {showButton && 
-                <button className="buttonCardDetalle"><Link to='/cart'>Ir al carrito</Link></button>
+                <button className='buttonLink'><Link to='/cart' className='linkButton'>Ir al carrito</Link></button>
                 }
                 
             </div>

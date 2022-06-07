@@ -27,6 +27,11 @@
     border-radius: 10px;
 }
 
+.selector{
+    border: 1px solid rgb(31, 30, 30);
+    border-radius: 10px;
+}
+
 .buttonCardDetalle{
     margin: 15px;
     background-color: black;
@@ -36,4 +41,23 @@
 
 .infoPrecioProducto{
     font-weight: bold;
+}
+
+.labelSelector{
+    margin: 1rem 0px;
+    font-weight: bold;
+}
+
+.buttonLink{
+    background-color: black;
+    margin-top: 2rem;
+    
+}
+
+.linkButton{
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+    color: white;
 }

@@ -5,7 +5,8 @@ const productos = [
         precio: 1500,
         stock: 10,
         image: './boxer-Armound.jpg',
-        categoria: 'boxers'
+        categoria: 'boxers',
+        descripcion: 'Boxer de excelente calidad, en varios colores'
     },
     {
         id: 2,
@@ -13,7 +14,8 @@ const productos = [
         precio: 2299,
         stock: 20,
         image: './gorras.jpg',
-        categoria: 'gorras'
+        categoria: 'gorras',
+        descripcion: 'Gorras de la mejor calidad en PROMO'
     },
     {
         id: 3,
@@ -21,7 +23,8 @@ const productos = [
         precio: 2000,
         stock: 15,
         image: './boxer-tommy.jpg',
-        categoria: 'boxers'
+        categoria: 'boxers',
+        descripcion: 'Boxers de primera'
     }
 ]
 
