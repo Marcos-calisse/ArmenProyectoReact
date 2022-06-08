@@ -17,9 +17,16 @@
     padding: 5px;
 }
 
-.nav-list li{
-    display: inline;
-    margin: 50px;
+.nav-list{
+    display: flex;
+    flex-direction: row;
+    
+    color: black;
+    list-style: none;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
 }
 
 .nav-list li:hover{
@@ -38,4 +45,14 @@
     width: 100px;
     height: 100px;
     margin: 1em;
+}
+
+.subNav{
+    
+    padding: 10px 0px;
+}
+
+.subCategorias{
+    display: flex;
+    flex-direction: column;
 }

@@ -33,13 +33,20 @@ const ItemDetail = ({data}) => {
                     <option>L</option>
                     <option>XL</option>
                 </select>
-                <label className="labelSelector">Seleccione Cantidad</label>
-                <ItemCount className="countDelProducto" modificarCantidad={setCantidad} cantidad={cantidad} stock = {5}/>
                 
-                <button className="buttonCardDetalle" onClick={addToCart}>Agregar al carrito</button>
-                {showButton && 
+                
+                {!showButton ?
+                    <>  
+                        <label className="labelSelector">Seleccione Cantidad</label>
+                        <ItemCount className="countDelProducto" modificarCantidad={setCantidad} cantidad={cantidad} stock = {5}/>
+                        <button className="buttonCardDetalle" onClick={addToCart}>Agregar al carrito</button>
+                    </>
+                :
                 <button className='buttonLink'><Link to='/cart' className='linkButton'>Ir al carrito</Link></button>
+                
                 }
+                
+                
                 
             </div>
             

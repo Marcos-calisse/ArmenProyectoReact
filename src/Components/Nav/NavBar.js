@@ -26,19 +26,19 @@ const NavBar = () => {
                 <li>
                     <Link to='/nosotros' className='componentesLink'>Nosotros</Link>
                 </li>
-                <li>
+                
                     
-                    <Dropdown className='subNav'>
-                        <Dropdown.Toggle variant="success" id="dropdown-basic">
-                            Productos    
-                        </Dropdown.Toggle>
+                <Dropdown className='subNav'>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                        Productos    
+                    </Dropdown.Toggle>
 
-                        <Dropdown.Menu>
-                            <Dropdown.Item><Link to={`/productos/:categoria`} className='componentesLink'>Boxers</Link></Dropdown.Item>
-                            <Dropdown.Item><Link to={`/productos/:categoria`} className='componentesLink'>Gorras</Link></Dropdown.Item>  
-                        </Dropdown.Menu>
-                    </Dropdown>
-                </li>
+                    <Dropdown.Menu className='subCategorias'>
+                        <Dropdown.Item><Link to={`/productos/:categoria`} className='componentesLink'>Boxers</Link></Dropdown.Item>
+                        <Dropdown.Item><Link to={`/productos/:categoria`} className='componentesLink'>Gorras</Link></Dropdown.Item>  
+                    </Dropdown.Menu>
+                </Dropdown>
+                
                 <li>
                     <Link to='/contacto' className='componentesLink'>Contacto</Link>
                 </li>
