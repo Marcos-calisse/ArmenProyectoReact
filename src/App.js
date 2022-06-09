@@ -7,21 +7,24 @@ import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailCont
 import Productos from './Components/pages/Productos'
 import Home from './Components/pages/Home'
 import Cart from './Components/pages/Cart'
+import CartProvider from './context/CartContext'
 
 function App() {
   return (
       <div className="App">
-        <BrowserRouter>
-          <NavBar />
-          <Routes>
-            <Route exact path='/' element={<Home />} />
-            <Route exact path='/nosotros' element={<Nosotros />} />
-            <Route exact path='/productos/:categoria' element={<Productos />} />
-            <Route exact path='/contacto' element={<Contacto />} />
-            <Route exact path='/producto/:id' element={<ItemDetailContainer />} />
-            <Route exact path='/cart' element={<Cart />} />
-          </Routes>
-        </BrowserRouter>
+        <CartProvider>
+          <BrowserRouter>
+            <NavBar />
+            <Routes>
+              <Route exact path='/' element={<Home />} />
+              <Route exact path='/nosotros' element={<Nosotros />} />
+              <Route exact path='/productos/:categoria' element={<Productos />} />
+              <Route exact path='/contacto' element={<Contacto />} />
+              <Route exact path='/producto/:id' element={<ItemDetailContainer />} />
+              <Route exact path='/cart' element={<Cart />} />
+            </Routes>
+          </BrowserRouter>
+        </CartProvider>
         
       </div>
     
