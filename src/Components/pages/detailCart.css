@@ -1,0 +1,27 @@
+.itemCart{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #ccc;
+}
+
+.imgProducto {
+    width: 7rem;
+}
+.imgProducto img {
+    width: 100%;
+}
+
+.itemCart > div{
+    margin: 0px 1rem;
+}
+
+.containerItemsCart{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.botonQuitar {
+    display: flex;
+    align-items: center;
+}

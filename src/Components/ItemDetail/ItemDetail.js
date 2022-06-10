@@ -17,7 +17,7 @@ const ItemDetail = ({data}) => {
         
         setShowButton(true)
         addProductToCart(data)
-        console.log('data en item detail', data)
+    
     }
 
     return(
