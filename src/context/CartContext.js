@@ -8,12 +8,39 @@ const CartProvider = ({children}) =>{
     
 
     const addProductToCart = (product) =>{
-        setProductsCart(productsCart => [...productsCart, product])
+        let productoEncontrado = productsCart.find(itemCart => itemCart.id === product.id)
+
+        let productoEnCarrito = productsCart.includes(productoEncontrado)
+
+        productoEnCarrito ? console.log('Ya agregaste este producto') : setProductsCart(productsCart => [...productsCart, product])
     }
+    
+
+    const totalCarrito = () => {
+
+        let sumaTotal =  productsCart.reduce((acc, product) => (acc + product.precio), 0)
+
+        return sumaTotal
+    }
+
+    const removeItem = (id) =>{
+        const nuevoArray = productsCart.filter((product) => product.id !== id)
+        console.log(nuevoArray)
+        setProductsCart(nuevoArray)
+    }
+    
+
+    const vaciarCarrito = () => {
+        return setProductsCart([])
+    }
+    
 
     const data = {
         productsCart,
         addProductToCart,
+        totalCarrito,
+        vaciarCarrito,
+        removeItem
     }
 
     return(
