@@ -1,7 +1,8 @@
 import ItemDetail from '../ItemDetail/ItemDetail'
-import productos  from '../utilidades/products'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { doc, getDoc } from 'firebase/firestore'
+import dataBase from '../utilidades/firebaseConfig'
 
 const ItemDetailContainer = () => {
 
@@ -9,30 +10,24 @@ const ItemDetailContainer = () => {
 
     const [product, setProduct] = useState({})
 
-    // const getItem = () => {
-    //     return new Promise((resolve, reject) => {
-    //         setTimeout(() =>{
-    //             resolve(productos)
-    //         })
-    //     })
-    // }
+    const getDetailProductFireBase = async () => {
+        const productRef = doc(dataBase, 'productos', id)
+        const productSnapshot = await getDoc(productRef)
+        let detalleProducto = productSnapshot.data()
+        detalleProducto.id = productSnapshot.id
+        return detalleProducto
+    }
 
     useEffect(() => {
-        // getItem()
-        // .then((response) => {
-        //     return response
-        // })
-        // .then((data) => {
-        //     setProduct(data)
-        // })
-
-        setProduct(productoEncontrado)
+        getDetailProductFireBase()
+        .then((response) => {
+            return response
+        })
+        .then((data) => {
+            setProduct(data)
+        })
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-    const productoEncontrado = productos.find( (producto) =>{
-        
-        return producto.id == id
-    })
 
     return(
         <div>

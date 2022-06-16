@@ -2,22 +2,25 @@ import CardItem from '../Cards/Card'
 import Container from 'react-bootstrap/Container'
 import './cardList.css'
 import { useEffect, useState } from 'react'
-import productos from '../utilidades/products'
+import { collection, getDocs } from 'firebase/firestore'
+import dataBase from '../../Components/utilidades/firebaseConfig'
 
 const CardList = ({titulo}) => {
     
     const [products, setProductos] = useState([])
 
-    const getProducts = () => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() =>{
-                resolve(productos)
-            })
-        })
+    const getProductsFireBase = async () => {
+        const querySnapshot = await getDocs(collection(dataBase, "productos"));
+        const productsFireBase = querySnapshot.docs.map((doc) => {
+            let producto = doc.data();
+            producto.id = doc.id
+            return producto
+        });
+        return(productsFireBase)
     }
 
     useEffect(() => {
-        getProducts()
+        getProductsFireBase()
         .then((response) =>{
             setProductos(response)
         })
