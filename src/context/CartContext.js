@@ -25,7 +25,6 @@ const CartProvider = ({children}) =>{
 
     const removeItem = (id) =>{
         const nuevoArray = productsCart.filter((product) => product.id !== id)
-        console.log(nuevoArray)
         setProductsCart(nuevoArray)
     }
     
