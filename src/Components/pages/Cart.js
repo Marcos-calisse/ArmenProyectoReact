@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from 'react'
+import { useContext, useState } from 'react'
 import { CartContext } from '../../context/CartContext'
 import './detailCart.css'
 import Button from '@mui/material/Button';
@@ -32,17 +32,12 @@ const Cart = () => {
                 precio: item.precio
             }
         }),
-        totalCompra: totalCarrito()
+        totalCompra: totalCarrito(),
     })
 
     const [mostrarOrden, setMostrarOrden] = useState()
 
     const [ date, setDate] = useState('')
-    
-
-    useEffect(() =>{
-        setDate(new Date().toLocaleString())
-    },[])
 
     const style = {
         position: 'absolute',
@@ -59,6 +54,7 @@ const Cart = () => {
         e.preventDefault();
         setOrden({...orden, comprador: valoresForm})
         enviarData({...orden, comprador: valoresForm})
+        setDate(new Date().toLocaleString())
     }
 
     const handleChange = (e) => {
@@ -69,6 +65,7 @@ const Cart = () => {
         const ordenFireBase = collection(dataBase, 'ordenes');
         const ordenDoc = await addDoc(ordenFireBase, nuevaOrden)
         setMostrarOrden(ordenDoc.id)
+        
     }
 
     return(
