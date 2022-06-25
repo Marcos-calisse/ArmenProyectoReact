@@ -12,17 +12,24 @@ import dataBase from '../utilidades/firebaseConfig'
 
 const Cart = () => {
 
+    // info cartContext
     const {productsCart, totalCarrito, vaciarCarrito, removeItem} = useContext(CartContext)
+
+    // estados del formulario
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
+    
     const [valoresForm, setVarloresForm] = useState({
         nombre: '',
         telefono: '',
         email: ''
     })
 
+    // estado de la fecha
+    const [ date, setDate] = useState()
+
+    // estado de la orden
     const [orden, setOrden] = useState({
         comprador: {},
         itemsCompra: productsCart.map((item) =>{
@@ -33,11 +40,11 @@ const Cart = () => {
             }
         }),
         totalCompra: totalCarrito(),
+        date: date
     })
 
     const [mostrarOrden, setMostrarOrden] = useState()
 
-    const [ date, setDate] = useState('')
 
     const style = {
         position: 'absolute',
@@ -70,21 +77,25 @@ const Cart = () => {
 
     return(
         <>  
-            <h2>Carrito de Compras</h2>
             <div className="containerItemsCart">
                 {
                     productsCart.length === 0 ?
                     <>
-                        <h3>Su carrito esta vacío</h3>
-                        <Button size="large" variant="outlined" className='buttonCart'>
-                            <Link to='/' className='componenteLinkCarrito'>Los mejores productos te esperan</Link>
-                        </Button>
+                        <div className='carritoVacio'>
+                            <h3>Su carrito esta vacío</h3>
+                            <Button size="large" variant="outlined" className='buttonCart'>
+                                <Link to='/' className='componenteLinkCarrito'>Los mejores productos te esperan</Link>
+                            </Button>
+                        </div>
                     </>
                     :
                     <>
                         {productsCart.map((item) =>{
                             return(
                                 <div className="itemCart">
+                                    <div className="contenidoInfoProducto">
+                                        {`cantidad ${item.cantidad}`}
+                                    </div>
                                     <div className="imgProducto">
                                         <img src={`/${item.image}`} alt=''/>
                                     </div>
@@ -169,7 +180,6 @@ const Cart = () => {
                 }
             </div>
         </>
-
     )
 }
 

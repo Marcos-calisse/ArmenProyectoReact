@@ -11,10 +11,10 @@
     font-weight: bold;
     background-color: cadetblue;
     padding: 5px;
+    border-radius: 40px;
 }
 
 .cardContainer{
-    border: 2px solid #000;
     border-radius: 2%;
     margin: 2rem;
 }
@@ -22,4 +22,8 @@
 .containerLink{
     margin: 5px;
     padding: 5px;
+}
+
+.buttonCardDetalle{
+    border-radius: 40px;
 }

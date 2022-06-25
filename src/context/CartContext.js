@@ -5,21 +5,16 @@ const CartContext = createContext()
 const CartProvider = ({children}) =>{
 
     const [productsCart, setProductsCart] = useState([])
-    
 
     const addProductToCart = (product) =>{
         let productoEncontrado = productsCart.find(itemCart => itemCart.id === product.id)
-
         let productoEnCarrito = productsCart.includes(productoEncontrado)
-
-        productoEnCarrito ? console.log('Ya agregaste este producto') : setProductsCart(productsCart => [...productsCart, product])
+        productoEnCarrito ? productoEncontrado.cantidad++ : setProductsCart(productsCart => [...productsCart, product])
     }
     
 
     const totalCarrito = () => {
-
-        let sumaTotal =  productsCart.reduce((acc, product) => (acc + product.precio), 0)
-
+        let sumaTotal =  productsCart.reduce((acc, product) => (acc + (product.precio * product.cantidad)), 0)
         return sumaTotal
     }
 
@@ -39,7 +34,8 @@ const CartProvider = ({children}) =>{
         addProductToCart,
         totalCarrito,
         vaciarCarrito,
-        removeItem
+        removeItem,
+        setProductsCart
     }
 
     return(

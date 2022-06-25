@@ -5,17 +5,15 @@
     justify-content: space-evenly;
 }
 
-.imgProducto {
-    width: 7rem;
-}
 .imgProducto img {
     width: 100%;
+}
+.imgProducto{
+    width: 7rem;
 }
 
 .itemCart > div{
     margin: 0px 1rem;
-    
-    
 }
 
 .containerItemsCart{
@@ -23,6 +21,7 @@
     justify-content: center;
     flex-direction: column;
     width: 100%;
+    margin-top: 2%;
 }
 
 .botonQuitar {

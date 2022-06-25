@@ -2,20 +2,24 @@ import './NavBar.css';
 import Navbar from 'react-bootstrap/Navbar'
 import CartWidget from '../Cart/CartWidget'
 import { Link } from 'react-router-dom'
-import Dropdown from 'react-bootstrap/Dropdown'
-
+import { useState } from 'react'
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
 const NavBar = () => {
 
-
-    const categorias = ['Boxers', 'Gorras'];
-    
-    categorias.map((cat) =>{
-        return cat
-    })
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
 
     return(
-        <Navbar  className="nav-bar">
+        <Navbar  className="navBar">
             
             <Link to='/'>
                 <div className="containerLogoMarca">
@@ -23,23 +27,41 @@ const NavBar = () => {
                 </div>
             </Link>
 
-            <ul className='nav-list'>
+            <ul className='navList'>
                 <li>
                     <Link to='/nosotros' className='componentesLink'>Nosotros</Link>
                 </li>
-                
-                    
-                <Dropdown className='subNav'>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                        Productos    
-                    </Dropdown.Toggle>
 
-                    <Dropdown.Menu className='subCategorias'>
-                        <Dropdown.Item><Link to={`/productos/Boxers`} className='componentesLink'>Boxers</Link></Dropdown.Item>
-                        <Dropdown.Item><Link to={`/productos/Gorras`} className='componentesLink'>Gorras</Link></Dropdown.Item>  
-                    </Dropdown.Menu>
-                </Dropdown>
-                
+                <li>
+                    <Button
+                        className='subNav'
+                        id="basic-button"
+                        aria-controls={open ? 'basic-menu' : undefined}
+                        aria-haspopup="true"
+                        aria-expanded={open ? 'true' : undefined}
+                        onClick={handleClick}
+                        
+                    >
+                        Productos
+                    </Button>
+                    <Menu
+                        className='subCategorias'
+                        id="basic-menu"
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleClose}
+                        MenuListProps={{
+                        'aria-labelledby': 'basic-button',
+                        }}
+                        
+                    >
+                        <MenuItem onClick={handleClose}><Link to={`/productos/Boxers`} className='componentesLink'>Boxers</Link></MenuItem>
+                        <MenuItem onClick={handleClose}><Link to={`/productos/Gorras`} className='componentesLink'>Gorras</Link></MenuItem>
+                        <MenuItem onClick={handleClose}><Link to={`/productos/Cintos`} className='componentesLink'>Cintos</Link></MenuItem>
+                        <MenuItem onClick={handleClose}><Link to={`/productos/Billeteras`} className='componentesLink'>Billeteras</Link></MenuItem>
+                    </Menu>
+                </li>
+
                 <li>
                     <Link to='/contacto' className='componentesLink'>Contacto</Link>
                 </li>

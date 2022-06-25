@@ -1,28 +1,14 @@
 import './itemDetail.css'
 import ItemCount from '../Cards/ItemCount'
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { CartContext } from '../../context/CartContext'
 
 const ItemDetail = ({data}) => {
-
-    const {addProductToCart} = useContext(CartContext)
     
-
-    const [cantidad, setCantidad] = useState(1)
-
     const [showButton, setShowButton] = useState(false)
-
-    const addToCart = () => {
-        
-        setShowButton(true)
-        addProductToCart(data)
-    
-    }
 
     return(
         <div className="containerDetalleProducto">
-
             <div className="containerImagenDetalleProducto">
                 <img src={`/${data.image}`} alt="" className="imagenProducto" />
             </div>
@@ -39,23 +25,15 @@ const ItemDetail = ({data}) => {
                     <option>XL</option>
                 </select>
                 
-                
                 {!showButton ?
                     <>  
                         <label className="labelSelector">Seleccione Cantidad</label>
-                        <ItemCount className="countDelProducto" modificarCantidad={setCantidad} cantidad={cantidad} stock = {5}/>
-                        <button className="buttonCardDetalle" onClick={addToCart}>Agregar al carrito</button>
+                        <ItemCount className="countDelProducto" data={data} setShowButton={setShowButton}/>
                     </>
-                :
-                <button className='buttonLink'><Link to='/cart' className='linkButton'>Ir al carrito</Link></button>
-                
+                    :
+                    <button className='buttonLink'><Link to='/cart' className='linkButton'>Ir al carrito</Link></button>
                 }
-                
-                
-                
             </div>
-            
-
         </div>
     )
 }

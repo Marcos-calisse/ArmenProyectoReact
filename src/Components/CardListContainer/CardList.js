@@ -3,11 +3,14 @@ import Container from 'react-bootstrap/Container'
 import './cardList.css'
 import { useEffect, useState } from 'react'
 import { collection, getDocs } from 'firebase/firestore'
-import dataBase from '../../Components/utilidades/firebaseConfig'
+import dataBase from '../../Components/utilidades/firebaseConfig';
+
+
 
 const CardList = ({titulo}) => {
     
     const [products, setProductos] = useState([])
+    
 
     const getProductsFireBase = async () => {
         const querySnapshot = await getDocs(collection(dataBase, "productos"));
@@ -18,6 +21,8 @@ const CardList = ({titulo}) => {
         });
         return(productsFireBase)
     }
+
+    
 
     useEffect(() => {
         getProductsFireBase()

@@ -36,7 +36,8 @@
     margin: 15px;
     background-color: black;
     color: white;
-    margin: 5px
+    margin: 5px;
+    border-radius: 40px;
 }
 
 .infoPrecioProducto{
@@ -51,7 +52,7 @@
 .buttonLink{
     background-color: black;
     margin-top: 2rem;
-    
+    border-radius: 40px;
 }
 
 .linkButton{
@@ -60,4 +61,8 @@
     font-weight: bold;
     padding: 5px;
     color: white;
+}
+
+.containerImagenDetalleProducto img{
+    width: 100%;
 }

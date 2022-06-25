@@ -4,10 +4,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Contacto from './Components/pages/Contacto'
 import Nosotros from './Components/pages/Nosotros'
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer'
-import Productos from './Components/pages/Productos'
 import Home from './Components/pages/Home'
 import Cart from './Components/pages/Cart'
 import CartProvider from './context/CartContext'
+import Productos from './Components/pages/Productos'
 
 function App() {
   return (
