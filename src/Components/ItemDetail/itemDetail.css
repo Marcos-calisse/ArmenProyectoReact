@@ -66,3 +66,11 @@
 .containerImagenDetalleProducto img{
     width: 100%;
 }
+
+@media only screen and (max-width: 360px){
+    .containerDetalleProducto{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+}

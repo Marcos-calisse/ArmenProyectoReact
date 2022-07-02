@@ -1,4 +1,3 @@
-
 .containerCartWidget{
     display: flex;
     flex-direction: column;
@@ -7,4 +6,46 @@
     background-color: black;
     color: white;
     border-radius: 50%
+}
+.imgProdCartWidget{
+    width: 15%;
+    margin-left: 10px;
+}
+.imgProdCartWidget img{
+    width: 100%;
+}
+
+.containeritemsCartWidget {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+}
+
+.containerGeneralCartWidget {
+    width: 50vh;
+}
+
+.containerLinkTerminarCompra {
+    display: flex;
+    justify-content: center;
+}
+
+.containerLinkTerminarCompra button {
+    background-color: black;
+    color: white;
+    border-radius: 40px;
+    margin: 15px;
+    padding: 15px;
+}
+.containerCarritoVacio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.linkCarritoVacio {
+    text-decoration: none;
+    color: cornflowerblue;
+    font-weight: bold;
 }

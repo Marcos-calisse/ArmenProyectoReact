@@ -4,12 +4,14 @@ import './cardList.css'
 import { useEffect, useState } from 'react'
 import { collection, getDocs } from 'firebase/firestore'
 import dataBase from '../../Components/utilidades/firebaseConfig';
+import Loader from '../ItemDetailContainer/LoaderDetail'
 
 
 
 const CardList = ({titulo}) => {
     
-    const [products, setProductos] = useState([])
+    const [ products, setProductos] = useState([])
+    const [ loader, setLoader ] = useState(false)
     
 
     const getProductsFireBase = async () => {
@@ -27,7 +29,12 @@ const CardList = ({titulo}) => {
     useEffect(() => {
         getProductsFireBase()
         .then((response) =>{
-            setProductos(response)
+            
+            setTimeout(()=>{ 
+                setLoader(true) 
+                setProductos(response)
+            },1000)
+            
         })
         .catch((error) =>{
             console.log("error de carga de datos", error)
@@ -39,17 +46,25 @@ const CardList = ({titulo}) => {
     return(
         <>
             <h2>{titulo}</h2>
-            <Container className="containerCards">
-                {
-                    products.map((producto) => {
-                        return(
-                            <div>
-                                <CardItem titulo={producto.nombre} precio={producto.precio} image={producto.image} id={producto.id} />
-                            </div>
-                        )
-                    })
-                }
-            </Container>
+            {loader ? 
+                <Container className="containerCards">
+                    {
+                        products.map((producto) => {
+                            return(
+                                <div>
+                                    <CardItem titulo={producto.nombre} precio={producto.precio} image={producto.image} id={producto.id} />
+                                </div>
+                            )
+                        })
+                    }
+                </Container> 
+            : 
+                <div className="containerLoader">
+                    <Loader sx={{ display: 'flex', flexDirection: 'row' }}/>
+                </div>
+            }
+            
+            
         </>
     )
 }

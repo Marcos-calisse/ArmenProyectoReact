@@ -8,9 +8,11 @@ import Home from './Components/pages/Home'
 import Cart from './Components/pages/Cart'
 import CartProvider from './context/CartContext'
 import Productos from './Components/pages/Productos'
+import Footer from './Components/Footer/Footer'
 
 function App() {
   return (
+    <>
       <div className="App">
         <CartProvider>
           <BrowserRouter>
@@ -23,10 +25,12 @@ function App() {
               <Route exact path='/producto/:id' element={<ItemDetailContainer />} />
               <Route exact path='/cart' element={<Cart />} />
             </Routes>
+            
           </BrowserRouter>
         </CartProvider>
-        
       </div>
+      <Footer />
+      </>
     
   );
 }

@@ -10,15 +10,20 @@ import Typography from '@mui/material/Typography';
 import { addDoc, collection } from 'firebase/firestore'
 import dataBase from '../utilidades/firebaseConfig'
 
+
 const Cart = () => {
 
     // info cartContext
-    const {productsCart, totalCarrito, vaciarCarrito, removeItem} = useContext(CartContext)
+    const {productsCart, totalCarrito, vaciarCarrito, removeItem, setProductsCart} = useContext(CartContext)
 
     // estados del formulario
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const handleClose = () => {
+        setOpen(false)
+        setProductsCart([])
+        totalCarrito(0)
+    };
     
     const [valoresForm, setVarloresForm] = useState({
         nombre: '',
@@ -40,7 +45,6 @@ const Cart = () => {
             }
         }),
         totalCompra: totalCarrito(),
-        date: date
     })
 
     const [mostrarOrden, setMostrarOrden] = useState()
@@ -62,6 +66,7 @@ const Cart = () => {
         setOrden({...orden, comprador: valoresForm})
         enviarData({...orden, comprador: valoresForm})
         setDate(new Date().toLocaleString())
+        
     }
 
     const handleChange = (e) => {
@@ -72,9 +77,9 @@ const Cart = () => {
         const ordenFireBase = collection(dataBase, 'ordenes');
         const ordenDoc = await addDoc(ordenFireBase, nuevaOrden)
         setMostrarOrden(ordenDoc.id)
-        
     }
 
+    
     return(
         <>  
             <div className="containerItemsCart">
@@ -118,64 +123,75 @@ const Cart = () => {
                                 <p className='tituloTotalCarrito'>El total de tu compra es: {`$${totalCarrito()}`}</p>
                             </div>
                             <Button size="large" variant="outlined" className='buttonContinueBuying' onClick={handleOpen}>
-                                Terminar compra
+                                Finalizar Compra
                             </Button>
                             <Button variant="outlined" color="error" onClick={vaciarCarrito}>Vaciar Carrito</Button>
                         </div>
-                        
-                        <Modal
-                            open={open}
-                            onClose={handleClose}
-                            aria-labelledby="modal-modal-title"
-                            aria-describedby="modal-modal-description"
-                        >
-                            <Box sx={style}>
-                                <Typography id="modal-modal-title" variant="h6" component="h2">
-                                    {mostrarOrden ? 'Compra exitosa' : 'Formulario'}
-                                </Typography>
-                                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                                    {mostrarOrden ? (
-                                        <div>
-                                            <div>
-                                                Orden Generada con éxito!!!
-                                            </div>
-                                            <div>
-                                                <p>Nro de orden: <span>{mostrarOrden}</span></p>
-                                                <p>Fecha y hora de su compra: {date}</p>
-                                            </div>
-                                            
-                                        </div>
-                                    ) : (
-                                            <form onSubmit={handleSubmit} className='formCompra'>
-                                                <TextField id="filled-basic" 
-                                                    label="Nombre y Apellido" 
-                                                    variant="filled"
-                                                    name= 'nombre'
-                                                    onChange={handleChange}
-                                                    value={valoresForm.nombre} 
-                                                />
-                                                <TextField id="filled-basic" 
-                                                    label="Telefono" 
-                                                    variant="filled"
-                                                    name= 'telefono'
-                                                    onChange={handleChange}
-                                                    value={valoresForm.telefono} 
-                                                />
-                                                <TextField id="filled-basic" 
-                                                    label="Email" 
-                                                    variant="filled"
-                                                    name= 'email'
-                                                    onChange={handleChange}
-                                                    value={valoresForm.email} 
-                                                />
-                                                <Button type='submit'>Enviar</Button>
-                                        </form>
-                                    )}
-                                    
-                                </Typography>
-                            </Box>
+                        <div className='containerModalFomr'>
                             
-                        </Modal>
+                                <Modal
+                                    open={open}
+                                    onClose={handleClose}
+                                    aria-labelledby="modal-modal-title"
+                                    aria-describedby="modal-modal-description"
+                                    className='modalForm'
+                                >
+                                    <Box sx={style}>
+                                        <Typography id="modal-modal-title" variant="h6" component="h2">
+                                            {mostrarOrden ? 'Compra exitosa' : ' Completar Formulario'}
+                                        </Typography>
+                                        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                                            {mostrarOrden ? (
+                                                <div className='containerOrden'>
+                                                    <div>
+                                                        <p>Orden Generada!!!</p>
+                                                    </div>
+                                                    <div>
+                                                        <p>Nro de orden: <span>{mostrarOrden}</span></p>
+                                                        <p>Fecha y hora de su compra: {date}</p>
+                                                    </div>
+                                                    
+                                                </div>
+                                            ) 
+                                            : 
+                                            (
+                                                    <form onSubmit={handleSubmit} className='formCompra'>
+                                                        <TextField 
+                                                            id="filled-basic" 
+                                                            label="Nombre y Apellido" 
+                                                            variant="filled"
+                                                            name= 'nombre'
+                                                            onChange={handleChange}
+                                                            value={valoresForm.nombre}
+                                                        />
+                                                        <TextField 
+                                                            id="filled-basic" 
+                                                            label="Telefono" 
+                                                            variant="filled"
+                                                            name= 'telefono'
+                                                            onChange={handleChange}
+                                                            value={valoresForm.telefono}
+                                                        />
+                                                        <TextField 
+                                                            id="filled-basic" 
+                                                            label="Email" 
+                                                            variant="filled"
+                                                            name= 'email'
+                                                            onChange={handleChange}
+                                                            value={valoresForm.email} 
+                                                        />
+                                                        <Button type='submit'>
+                                                            Enviar
+                                                        </Button>
+                                                </form>
+                                            )}
+                                            
+                                        </Typography>
+                                    </Box>
+                                    
+                                </Modal>
+                            
+                        </div>
                     </>
                 }
             </div>

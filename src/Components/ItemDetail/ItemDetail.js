@@ -2,12 +2,14 @@ import './itemDetail.css'
 import ItemCount from '../Cards/ItemCount'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Container from 'react-bootstrap/Container'
 
 const ItemDetail = ({data}) => {
     
     const [showButton, setShowButton] = useState(false)
 
     return(
+        <Container>
         <div className="containerDetalleProducto">
             <div className="containerImagenDetalleProducto">
                 <img src={`/${data.image}`} alt="" className="imagenProducto" />
@@ -35,6 +37,7 @@ const ItemDetail = ({data}) => {
                 }
             </div>
         </div>
+        </Container>
     )
 }
 

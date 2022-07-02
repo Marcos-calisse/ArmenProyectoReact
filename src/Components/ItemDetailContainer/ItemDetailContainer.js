@@ -3,12 +3,16 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { doc, getDoc } from 'firebase/firestore'
 import dataBase from '../utilidades/firebaseConfig'
+import './itemDetailContainer.css'
+import Loader from './LoaderDetail'
 
 const ItemDetailContainer = () => {
 
     const { id } = useParams({})
 
     const [product, setProduct] = useState({})
+
+    const [loading, setLoading] = useState(false)
 
     const getDetailProductFireBase = async () => {
         const productRef = doc(dataBase, 'productos', id)
@@ -24,14 +28,19 @@ const ItemDetailContainer = () => {
             return response
         })
         .then((data) => {
-            setProduct(data)
+            
+            setTimeout(() => {
+                setLoading(true)
+                setProduct(data)
+            },1000)
+            
         })
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
 
     return(
-        <div>
-            <ItemDetail data={product}/>
+        <div className='containerDetail'>
+            {loading ? <ItemDetail data={product}/> : <Loader />}
         </div>
     )
 }

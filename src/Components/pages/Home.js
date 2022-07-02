@@ -4,9 +4,11 @@ const Home = () => {
     
 
     return(
-        <div>
-            <h2>Home</h2>
-            <CardList />
+        <div className='containerContenidoHome'>
+            <div className='containerImgBanner'>
+                <img src='./banner.webp' alt='Banner' className='banner' />
+            </div>
+            <CardList titulo='Los Mejores Productos Aquí'/>
         </div>
     )
 }

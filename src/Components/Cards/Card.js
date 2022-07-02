@@ -6,19 +6,27 @@ const CardItem = ({titulo, precio, image, id}) => {
 
     
     return (
-        <div style={{ width: '12rem' }} className="cardContainer">
+        <div 
+            style={{ width: '12rem' }} 
+            className="cardContainer"
+        >
             <div className="container-img">
                 <img src={`/${image}`} alt="" />
             </div>
             <div>
                 <h2>{titulo}</h2>
-                
-                <span>
-                    {`$ ${precio}`}
-                </span>
+                <div className="containerPrecioProducto">
+                    <span className="cardPrecioProducto">
+                        {`$ ${precio}`}
+                    </span>
+                </div>
                 
                 <div className="containerLink">
-                    <Link to={`/producto/${id}`} className="linkDetalle">Ver Detalle</Link>
+                    <Link 
+                        to={`/producto/${id}`} 
+                        className="linkDetalle">
+                        Ver Detalle
+                    </Link>
                 </div>
                 
                 

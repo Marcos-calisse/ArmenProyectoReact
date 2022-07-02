@@ -7,18 +7,22 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
+
 const NavBar = () => {
 
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
-    const handleClick = (event) => {
+    const handleMove = (event) => {
       setAnchorEl(event.currentTarget);
     };
     const handleClose = () => {
       setAnchorEl(null);
     };
 
+
+
     return(
+        
         <Navbar  className="navBar">
             
             <Link to='/'>
@@ -26,12 +30,10 @@ const NavBar = () => {
                     <img src="/logoArmen.jpeg" className='imagenLogo' alt="logo"/>
                 </div>
             </Link>
-
             <ul className='navList'>
                 <li>
                     <Link to='/nosotros' className='componentesLink'>Nosotros</Link>
                 </li>
-
                 <li>
                     <Button
                         className='subNav'
@@ -39,7 +41,7 @@ const NavBar = () => {
                         aria-controls={open ? 'basic-menu' : undefined}
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
-                        onClick={handleClick}
+                        onMouseMove={handleMove}
                         
                     >
                         Productos
@@ -61,7 +63,6 @@ const NavBar = () => {
                         <MenuItem onClick={handleClose}><Link to={`/productos/Billeteras`} className='componentesLink'>Billeteras</Link></MenuItem>
                     </Menu>
                 </li>
-
                 <li>
                     <Link to='/contacto' className='componentesLink'>Contacto</Link>
                 </li>
@@ -70,7 +71,6 @@ const NavBar = () => {
                 <CartWidget />
             </div>
             
-           
         </Navbar>
     )
 }

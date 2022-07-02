@@ -74,4 +74,9 @@ form.formCompra > div {
 form.formCompra button {
     background-color: black;
     color: white;
+    border-radius: 40px;
+}
+
+.containerModalFomr > .modalForm{
+    width: 100%;
 }
