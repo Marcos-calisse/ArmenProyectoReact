@@ -68,7 +68,7 @@
     flex-direction: column;
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (min-width: 320px) and (max-width: 767px) {
     .navBar{
         width: 100%;
         background-color: rgb(199, 198, 198);
